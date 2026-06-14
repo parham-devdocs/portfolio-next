@@ -33,8 +33,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
         <Navbar naItems={navItems}/>
-
+<section className=" px-14 py-10">
 {children}
+
+</section>
         </ThemeProvider>
      </body>
     </html>
