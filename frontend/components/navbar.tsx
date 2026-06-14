@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { NavItem } from '@/app/types'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './toggleButton'
+import { MenuIcon } from 'lucide-react'
+import { Button } from './ui/button'
 
 
 
@@ -15,13 +17,24 @@ const path=usePathname()
                <span className=' text-cyan-600'>&lt;</span> parham_pazargadi <span className='text-cyan-600'>/&gt;</span> 
             </Link>    <ul className=' flex items-center gap-7'>
       {naItems.map((item,index)=>{
-        return <div className=' flex flex-col items-center gap-1' key={ index}>
+        return <div className='  flex-col items-center gap-1 lg:flex hidden' key={ index}>
           <Link   href={item.href} >{item.label}</Link>
           <span className={`${path === item.href ? "w-full" : "w-0"} h-[2.5px] rounded-full bg-cyan-400 transition-all duration-500`}></span>
                     </div>
       })}
-      <ThemeToggle/>
 
+      <div className=' flex items-center gap-3'>
+      <ThemeToggle/>
+      <Button
+      variant="outline"
+      size="icon"
+      
+      className=" cursor-pointer lg:hidden flex"
+    >
+   <MenuIcon/>
+    </Button>
+      </div>
+      
     </ul>
 </div>
 
