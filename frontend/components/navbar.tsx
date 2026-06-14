@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import { NavItem } from '@/app/types'
 import { usePathname } from 'next/navigation'
+import { ThemeToggle } from './toggleButton'
 
 
 
@@ -19,6 +20,7 @@ const path=usePathname()
           <span className={`${path === item.href ? "w-full" : "w-0"} h-[2.5px] rounded-full bg-cyan-400 transition-all duration-500`}></span>
                     </div>
       })}
+      <ThemeToggle/>
 
     </ul>
 </div>

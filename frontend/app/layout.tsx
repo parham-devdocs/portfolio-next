@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import { navItems } from "./mockData";
+import ThemeProvider from "./wrappers/themeProvider";
 
 
 
@@ -27,11 +28,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn("h-full", "antialiased", space.className)}
+    
     >
       <body className="min-h-full flex flex-col">
-      <Navbar naItems={navItems}/>
+        <ThemeProvider>
+        <Navbar naItems={navItems}/>
 
-        {children}</body>
+{children}
+        </ThemeProvider>
+     </body>
     </html>
   );
 }
