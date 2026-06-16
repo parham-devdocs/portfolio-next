@@ -10,7 +10,7 @@ export const navItems:NavItem[]=[
 ]
 
 export const projects:Project[]=[
-{ imageUrl: "../public/challenge-64-thumbnail.jpeg",
+{ imageUrl: "/challenge-64-thumbnail.jpeg",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     title: "Interactive Dashboard",
     description: "A modern analytics dashboard with real-time data visualization, interactive charts, and customizable widgets for tracking key metrics.",
@@ -18,7 +18,7 @@ export const projects:Project[]=[
     publicLink: "https://interactive-dashboard-demo.vercel.app",
     status:"completed"
 },
-{  imageUrl: "../public/challenge-66-thumbnail.jpeg",
+{  imageUrl: "/challenge-66-thumbnail.jpeg",
     technologies: ["Next.js", "Node.js", "MongoDB", "JWT"],
     title: "Task Management System",
     description: "A full-stack task management application with user authentication, real-time updates, team collaboration features, and priority-based task organization.",
@@ -26,7 +26,7 @@ export const projects:Project[]=[
     publicLink: "https://task-management-system.vercel.app",
     status:"in-progress"
 },
-{ imageUrl: "../public/challenge-71-thumbnail.jpeg",
+{ imageUrl: "/challenge-71-thumbnail.jpeg",
     technologies: ["Vue.js", "Vuex", "Firebase", "SCSS"],
     title: "E-Commerce Platform",
     description: "A responsive e-commerce platform with product catalog, shopping cart functionality, user authentication, and secure payment integration.",
