@@ -5,27 +5,32 @@ import type { NextRequest } from "next/server";
 import { authOptions } from "./app/lib/nextauthOptions";
 
 export default async function middleware(request: NextRequest) {
-  console.log("🔄 Middleware running for:", request.nextUrl.pathname);
+  const pathname = request.nextUrl.pathname;
+  console.log("🔄 Middleware running for:", pathname);
   
   // ✅ Get session with authOptions
   const session = await getServerSession(authOptions);
-  
-  console.log("📋 Session in middleware:", session?.user);
+  console.log("📋 Session:", session?.user);
 
-  // ✅ Check if user is authenticated and has admin role
-  if (!session) {
+  // ✅ Check if user is authenticated
+  if (!session?.user) {
     console.log("❌ No session, redirecting to login");
-    return NextResponse.redirect(new URL("/login", request.url));
+    
+    // Create login URL with callback
+    const loginUrl = new URL("/login", request.url);
+    loginUrl.searchParams.set("callbackUrl", pathname);
+    
+    return NextResponse.redirect(loginUrl);
   }
 
-  // ✅ Check role
-  if (session.user?.role !== "admin") {
-    console.log(`❌ User role is "${session.user?.role}", not admin. Redirecting to home.`);
+  // ✅ Check if user has admin role for admin routes
+  if (pathname.startsWith("/admin") && session.user.role !== "admin") {
+    console.log("❌ Not admin, redirecting to home");
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   // ✅ Allow access
-  console.log("✅ Admin access granted");
+  console.log("✅ Access granted");
   return NextResponse.next();
 }
 

@@ -17,15 +17,12 @@ export default function LoginForm() {
 
     const formData = new FormData(e.currentTarget);
     const email = formData.get('email') as string;
-    const username = formData.get('username') as string;
-    const role = formData.get('role') as string;
+  
     const password = formData.get('password') as string;
 
     try {
       const result = await signIn('credentials', {
         email,
-        username,
-        role,
         password,
         redirect: false,
       });
@@ -37,14 +34,8 @@ export default function LoginForm() {
         setLoading(false);
       } else if (result?.ok) {
         // Successful login - redirect based on role
-        if (role === 'admin') {
-          router.push('/dashboard');
-        } else if (role === 'user') {
-          router.push('/');
-        } else {
-          router.push('/testimonials');
-        }
-        router.refresh();
+        console.log("redirected")
+       router.push("/dashboard")
       }
     } catch (error) {
       console.error('Login error:', error);
@@ -69,36 +60,8 @@ export default function LoginForm() {
         />
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="username" className="block mb-2">
-          Username
-        </label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          defaultValue="parham"
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="role" className="block mb-2">
-          Role
-        </label>
-        <select
-          id="role"
-          name="role"
-          defaultValue="admin"
-          className="w-full px-3 py-2 border rounded"
-          required
-        >
-          <option value="admin">Admin</option>
-          <option value="employer">Employer</option>
-          <option value="user">User</option>
-        </select>
-      </div>
+  
+  
       
       <div className="mb-4">
         <label htmlFor="password" className="block mb-2">

@@ -8,24 +8,23 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        username: { label: "Username", type: "text" },
-        role: { label: "Role", type: "text" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        console.log("Login attempt:", credentials);
-        
+
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Email and password required');
+        }
+        if (credentials.email!==process.env.ADMIN_EMAIL && credentials.password!==process.env.ADMIN_PASSWORD ) {
+          throw new Error('Email or Password is not vallid');
+
         }
 
         // Simulate user lookup (replace with your DB logic)
         const user = {
           id: "1",
           email: credentials.email,
-          username: credentials.username || credentials.email,
-          role: credentials.role || 'user',
-          name: credentials.username || credentials.email,
+     
         };
 
         console.log("User object:", user); // Debug log
@@ -42,9 +41,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
         token.email = user.email;
-        token.username = user.username;
-        token.role = user.role;
-        token.name = user.name;
+      
       }
       
       console.log("JWT callback - token after:", token); // Debug log
@@ -57,9 +54,6 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
-        session.user.name = token.name as string;
-        session.user.username = token.username as string;
-        session.user.role = token.role as string;
       }
       
       console.log("Session callback - session after:", session); // Debug log
