@@ -1,7 +1,10 @@
 import { ProjectCard } from "@/components/projectCard";
 import { projects } from "../mockData";
+import { getServerSession } from "next-auth";
 
-const page = () => {
+const page =async () => {
+ const session=await getServerSession()
+ console.log(session)
   return (
     <div className=" w-full h-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 ">
       {projects.map((p, i) => {
