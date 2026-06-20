@@ -3,7 +3,7 @@ import {  } from "../public/challenge-66-thumbnail.jpeg";
 
 export const navItems:NavItem[]=[
     {href:"/about",label:"About"},
-    {href:"/skils",label:"Skils"},
+    {href:"/skills",label:"Skils"},
     {href:"/testimonials",label:"Testimonials"}
 
 ]

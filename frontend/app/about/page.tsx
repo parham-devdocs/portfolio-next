@@ -173,7 +173,7 @@ export default function BioSection() {
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 text-cyan-400" />
+                      <Sparkles className=" animate- w-4 h-4 text-cyan-400" />
                     </div>
                   </div>
                   <p className="text-[15px] md:text-base">
@@ -187,7 +187,7 @@ export default function BioSection() {
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                      <Coffee className="w-4 h-4 text-purple-400" />
+                      <Coffee className="w-4 animate-caret-blink h-4 text-purple-400" />
                     </div>
                   </div>
                   <p className="text-[15px] md:text-base">

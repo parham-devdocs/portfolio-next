@@ -126,7 +126,7 @@ export function ProjectCard({
             <Button 
               type="button" 
               variant="outline"
-              className="flex-1 bg-gradient-to-r dark:bg-white bg-black  hover:from-cyan-700  hover:to-cyan-800 text-white border-0 shadow-lg hover:shadow-cyan-400/30 transition-all duration-300 gap-2 group/btn"
+              className="flex-1 bg-gradient-to-r dark:bg-white bg-black  hover:from-cyan-700  hover:to-cyan-800 text-black hover:text-white border-0  transition-all duration-300 gap-2 group/btn"
               asChild
             >
               <Link href={githubLink} target="_blank" rel="noopener noreferrer">
