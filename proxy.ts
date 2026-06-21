@@ -24,7 +24,7 @@ export default async function middleware(request: NextRequest) {
   }
 
   // ✅ Check if user has admin role for admin routes
-  if (pathname.startsWith("/admin") && session.user.role !== "admin") {
+  if (pathname.startsWith("/admin") && session.user.email) {
     console.log("❌ Not admin, redirecting to home");
     return NextResponse.redirect(new URL("/", request.url));
   }

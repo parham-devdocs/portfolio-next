@@ -7,22 +7,15 @@ import {
   Server, 
   Smartphone, 
   Terminal, 
-  Layers, 
-  GitBranch,
-  User,
-  Mail,
-  Phone,
-  Briefcase,
-  Calendar,
-  Award,
-  ExternalLink
+  Layers
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { DiGithub } from "react-icons/di";
+
+export  const dynamic = 'force-static';
+
 
 export default function SkillsPage() {
+
+
   const skillCategories = [
     {
       title: "Frontend",

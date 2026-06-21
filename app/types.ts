@@ -5,12 +5,25 @@ export type NavItem={
     label:string
 }
 
+export type Document={
+    _id: string,
+    filename: string,
+    mimeType:string,
+    size: number,
+    path: string,
+    createdAt:string,
+    updatedAt: string
+
+}
+
 export type Project={
+    _id:string
     imageUrl: string
     description:string
     title:string
     technologies:string[]
-    githubLink?:string
-    publicLink?:string
+    github?:string
+    link?:string
     status?: "completed" | "in-progress" | "planned";
+    document:Document 
 }

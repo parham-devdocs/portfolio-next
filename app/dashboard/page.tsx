@@ -3,10 +3,11 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/nextauthOptions";
 import { redirect } from "next/navigation";
 
+export const validate=3600
+
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
 
-  console.log("Dashboard Session:", session); // Debug
 
   if (!session) {
     redirect('/login');

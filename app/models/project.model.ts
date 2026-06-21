@@ -1,5 +1,6 @@
 // models/Project.ts
 import mongoose, { Schema, Document, Types } from 'mongoose';
+import { IDocument } from './documentModel';
 
 export interface IProject extends Document {
   title: string;
@@ -10,7 +11,7 @@ export interface IProject extends Document {
   technologies: string[];
   category: string;
   isActive: boolean;
-  document?: Types.ObjectId; // ✅ Reference to Document model
+  document?: mongoose.Types.ObjectId | IDocument; // ✅ Add reference to Document
   createdAt: Date;
   updatedAt: Date;
 }

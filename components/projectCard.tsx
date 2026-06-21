@@ -5,14 +5,13 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { Project } from "@/app/types"
 import Image from "next/image"
-import { ExternalLink, Code2 } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import { DiGithub } from "react-icons/di"
@@ -22,13 +21,13 @@ import { CollapsibleText } from "./collapsible"
 export function ProjectCard({ 
   technologies, 
   title, 
-  imageUrl, 
-  githubLink, 
+  document, 
+  github, 
   description, 
   status, 
-  publicLink,
+  link,
 }: Project) {
-  
+  console.log({link,github})
   const statusColors = {
     completed: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
     "in-progress": "bg-cyan-400/10 text-cyan-400 border-cyan-400/20",
@@ -66,7 +65,7 @@ export function ProjectCard({
           {/* Image with overlay gradient */}
           <div className="relative overflow-hidden rounded-lg bg-gray-800">
             <Image 
-              src={imageUrl} 
+              src={document.path} 
               alt={title} 
               width={500} 
               height={300}
@@ -79,9 +78,9 @@ export function ProjectCard({
             
             {/* Quick action buttons on image hover */}
             <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-              {publicLink && (
+              {link && (
                 <a 
-                  href={publicLink} 
+                  href={link} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 bg-cyan-400/90 hover:bg-cyan-400 rounded-full text-gray-900 transition-colors shadow-lg"
@@ -89,9 +88,9 @@ export function ProjectCard({
                   <ExternalLink size={16} />
                 </a>
               )}
-              {githubLink && (
+              {github && (
                 <a 
-                  href={githubLink} 
+                  href={github} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full text-white transition-colors shadow-lg"
@@ -122,21 +121,21 @@ export function ProjectCard({
         </CardContent>
 
         <CardFooter className="flex gap-3 pt-2 bg-transparent">
-          {githubLink && (
+          {github && (
             <Button 
               type="button" 
               variant="outline"
               className="flex-1 bg-gradient-to-r dark:bg-white bg-black  hover:from-cyan-700  hover:to-cyan-800 text-black hover:text-white border-0  transition-all duration-300 gap-2 group/btn"
               asChild
             >
-              <Link href={githubLink} target="_blank" rel="noopener noreferrer">
+              <Link href={github} target="_blank" rel="noopener noreferrer">
                 <DiGithub size={18} className="transition-transform duration-300 group-hover/btn:scale-110" />
                 Source Code
               </Link>
             </Button>
           )}
           
-          {publicLink && (
+          {link && (
 
             <button className="relative bg-black text-white rounded-full px-3.5 py-2 overflow-hidden group">
             {/* Sliding background that slides in from left on hover */}
@@ -144,7 +143,7 @@ export function ProjectCard({
             
             {/* Content with higher z-index */}
             <div className="relative z-10">
-              <Link href={publicLink} target="_blank" rel="noopener noreferrer" className="flex gap-3 items-center">
+              <Link href={link} target="_blank" rel="noopener noreferrer" className="flex gap-3 items-center">
                 <ExternalLink size={18} className="transition-transform duration-300 group-hover:scale-110" />
                 Live Demo
               </Link>

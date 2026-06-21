@@ -2,6 +2,9 @@ import Image from "next/image";
 import profilePicture from "./../public/young-bearded-man-with-striped-shirt_273609-5677.avif";
 import TypingEffect from "@/components/heroHeader";
 
+export  const dynamic = 'force-static';
+
+
 export default function Home() {
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-between flex-col lg:flex-row gap-12 px-4 md:px-8 lg:px-16">
