@@ -1,6 +1,5 @@
 import { ProjectCard } from "@/components/projectCard";
 import { getProjects } from "../actions/projects";
-import { connectDB } from "../db";
 
 export const revalidate = 86400; // 24 hours
 
@@ -22,7 +21,7 @@ const page = async () => {
         <ProjectCard
           _id={p._id}
           key={i}
-          document={p.document}
+          path={p.path}
           github={p.github}
           imageUrl={p.imageUrl}
           technologies={p.technologies}
@@ -30,6 +29,7 @@ const page = async () => {
           title={p.title}
           description={p.description}
           status={p.status}
+          
         />
       ))}
     </div>

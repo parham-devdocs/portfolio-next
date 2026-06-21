@@ -7,16 +7,16 @@ export type NavItem={
 
 export type Document={
     _id: string,
-    filename: string,
-    mimeType:string,
-    size: number,
+    filename?: string,
+    mimeType?:string,
+    size?: number,
     path: string,
-    createdAt:string,
-    updatedAt: string
+    createdAt?:string,
+    updatedAt?: string
 
 }
 
-export type Project={
+export interface Project extends Document{
     _id:string
     imageUrl: string
     description:string
@@ -25,5 +25,5 @@ export type Project={
     github?:string
     link?:string
     status?: "completed" | "in-progress" | "planned";
-    document:Document 
+    
 }

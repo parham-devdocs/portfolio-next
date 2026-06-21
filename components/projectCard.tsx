@@ -21,9 +21,9 @@ import { CollapsibleText } from "./collapsible"
 export function ProjectCard({ 
   technologies, 
   title, 
-  document, 
   github, 
   description, 
+  path,
   status, 
   link,
 }: Project) {
@@ -65,7 +65,7 @@ export function ProjectCard({
           {/* Image with overlay gradient */}
           <div className="relative overflow-hidden rounded-lg bg-gray-800">
             <Image 
-              src={document.path} 
+              src={path} 
               alt={title} 
               width={500} 
               height={300}
